@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $title = "Homepage Sito";
-    $navLink = "/chiSiamo";
-    $nameLink = "Chi Siamo";
+    $navLinks = [
+        ["name" => "Home", "url" => "/"],
+        ["name" => "Chi Siamo", "url" => "chiSiamo"],
+        ["name" => "Prodotti", "url" => "prodotti"],
+    ];
 
-    return view('home', compact("title", "navLink", "nameLink"));
+    $content = "Home page del sito.";
+
+    return view('home', compact("title", "navLinks", "content"));
 });
 
 
@@ -27,8 +32,30 @@ Route::get('/', function () {
 Route::get('/chiSiamo', function () {
 
     $title = "Chi siamo";
-    $navLink = "/";
-    $nameLink = "Home";
+    $navLinks = [
+        ["name" => "Home", "url" => "/"],
+        ["name" => "Chi Siamo", "url" => "chiSiamo"],
+        ["name" => "Prodotti", "url" => "prodotti"],
 
-    return view('chiSiamo', compact("title", "navLink", "nameLink"));
+    ];
+
+    $content = "La nostra missione è quella di creare soluzioni innovative alla portata di tutti.";
+
+    return view('chiSiamo', compact("title", "navLinks", "content"));
+});
+
+
+Route::get('/prodotti', function () {
+
+    $title = "I nostri prodotti";
+    $navLinks = [
+        ["name" => "Home", "url" => "/"],
+        ["name" => "Chi Siamo", "url" => "chiSiamo"],
+        ["name" => "Prodotti", "url" => "prodotti"],
+
+    ];
+
+    $content = "I nostri prodotti.";
+
+    return view('prodotti', compact("title", "navLinks", "content"));
 });
