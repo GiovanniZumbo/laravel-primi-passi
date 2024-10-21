@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    $title = "Homepage Sito";
+    $navLink = "/chiSiamo";
+    $nameLink = "Chi Siamo";
+
+    return view('home', compact("title", "navLink", "nameLink"));
+});
+
+
+
+Route::get('/chiSiamo', function () {
+
+    $title = "Chi siamo";
+    $navLink = "/";
+    $nameLink = "Home";
+
+    return view('chiSiamo', compact("title", "navLink", "nameLink"));
 });
